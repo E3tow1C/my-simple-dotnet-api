@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "sGMGvS4TyMTRUYbmjTHT4b2kKoCM1YVCnyY5NrnAfLM=",
+  "Source": "my-simple-api",
+  "BasePath": "_content/my-simple-api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

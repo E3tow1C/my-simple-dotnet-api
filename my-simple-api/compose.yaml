@@ -1,0 +1,44 @@
+services:
+  server:
+    container_name: api
+    build:
+      context: .
+    networks:
+      - apidb
+    ports:
+      - 8080:8080
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+
+  db:
+    container_name: db
+    image: mysql:latest
+    restart: always
+    networks:
+      - apidb
+    ports:
+      - "3306:3306"
+    volumes:
+      - data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "db" ]
+      interval: 10s
+      timeout: 15s
+      retries: 5
+
+volumes:
+  data: {
+    name: my-data,
+    external: true
+  }
+
+networks:
+  apidb:

@@ -1,0 +1,6 @@
+@my_simple_api_HostAddress = http://localhost:8080
+
+GET {{my_simple_api_HostAddress}}/api/Users/getToken/0
+Accept: application/json
+
+###
