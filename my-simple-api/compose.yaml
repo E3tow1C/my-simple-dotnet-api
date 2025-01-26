@@ -11,7 +11,7 @@ services:
       db:
         condition: service_healthy
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
 
   db:
     container_name: db
